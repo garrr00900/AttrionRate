@@ -55,7 +55,7 @@ Dataset yang digunakan memuat dimensi sebesar **1470 baris** dan **36 kolom**. U
 
 ##### Exploratory Data Analysis (EDA)
 ###### Data Numerik
-![image](https://github.com/user-attachments/assets/33c547e1-3af9-4f4e-969b-66780eead2dd)
+![Image](https://github.com/user-attachments/assets/378e4557-9806-4559-99ca-457f673d7aa4)
 
 Berikut adalah ringkasan interpretasi dari grafik distribusi fitur numerik pada dataset karyawan:
 - **Age**: Mayoritas karyawan berada pada rentang usia 25–45 tahun, menunjukkan dominasi usia produktif di perusahaan.
@@ -86,7 +86,7 @@ Berikut adalah ringkasan interpretasi dari grafik distribusi fitur numerik pada 
 - **YearsSinceLastPromotion**: Banyak karyawan yang belum dipromosikan dalam waktu yang cukup.
 
 ###### Data Kategorikal
-![image](https://github.com/user-attachments/assets/33c547e1-3af9-4f4e-969b-66780eead2dd)
+![Image](https://github.com/user-attachments/assets/4b87a441-982a-4be1-b98b-12580b68b69e)
 
 Berikut adalah ringkasan interpretasi dari grafik distribusi fitur kategorikal pada dataset karyawan:
 - **BusinessTravel** – Mayoritas karyawan hanya sesekali melakukan perjalanan bisnis.
@@ -239,8 +239,8 @@ IncomePerYear: Rata-rata pendapatan per tahun bekerja.
 JobSatisfactionLevel: Rata-rata kepuasan kerja gabungan dari beberapa aspek.  
 IsOverTime: Menandai apakah karyawan bekerja lembur.  
 
-##### Heatmap Korelasi Fitur Numerik Terpilih terhadap Attrition
-![image](https://github.com/user-attachments/assets/33c547e1-3af9-4f4e-969b-66780eead2dd)
+#### Heatmap Korelasi Fitur Numerik Terpilih terhadap Attrition
+![Image](https://github.com/user-attachments/assets/3b19baac-6e43-4875-ae03-84d2291a5e3e)
 
 **Fitur** | **Korelasi** | **Interpretasi**
 --- | --- | ---
@@ -325,7 +325,7 @@ Pemilihan kelima model ini didasarkan pada kombinasi antara **kemampuan generali
 
 ---
 
-###### logistic Regression
+#### logistic Regression
 
 Model statistik yang memprediksi probabilitas dari kelas target. Logistic Regression sangat cocok digunakan sebagai baseline karena:
 
@@ -335,7 +335,7 @@ Model statistik yang memprediksi probabilitas dari kelas target. Logistic Regres
 
 ---
 
-###### Nearest Neighbors (KNN)
+#### Nearest Neighbors (KNN)
 
 Model berbasis instance yang menentukan kelas berdasarkan mayoritas dari k tetangga terdekat. Karakteristik:
 
@@ -345,7 +345,7 @@ Model berbasis instance yang menentukan kelas berdasarkan mayoritas dari k tetan
 
 ---
 
-###### Support Vector Machine (SVM)
+#### Support Vector Machine (SVM)
 
 Model yang berusaha menemukan hyperplane terbaik untuk memisahkan dua kelas dengan margin maksimal. Keunggulan:
 
@@ -355,7 +355,7 @@ Model yang berusaha menemukan hyperplane terbaik untuk memisahkan dua kelas deng
 
 ---
 
-###### Random Forest
+#### Random Forest
 
 Random Forest adalah model berbasis ensemble learning yang terdiri dari banyak *decision tree* yang dilatih secara acak. Keunggulan:
 
@@ -365,7 +365,7 @@ Random Forest adalah model berbasis ensemble learning yang terdiri dari banyak *
 
 ---
 
-###### Gradient Boosting
+#### Gradient Boosting
 
 Gradient Boosting adalah model ensemble yang membangun pohon keputusan secara bertahap, dengan memperbaiki kesalahan dari model sebelumnya. Karakteristik:
 
@@ -375,7 +375,7 @@ Gradient Boosting adalah model ensemble yang membangun pohon keputusan secara be
 
 ---
 
-###### Tujuan Pelatihan Multi-Model
+#### Tujuan Pelatihan Multi-Model
 
 Pelatihan kelima model ini dilakukan untuk membandingkan performa dari berbagai algoritma, terutama pada:
 
@@ -385,7 +385,7 @@ Pelatihan kelima model ini dilakukan untuk membandingkan performa dari berbagai 
 - Interpretabilitas model untuk keperluan bisnis 
 
 
-### Evaluasi Model
+##### Evaluasi Model
 Model Terbaik Berdasarkan Accuracy
 | Model                   | Accuracy | Precision | Recall   | F1-Score |
 |-------------------------|----------|-----------|----------|----------|
@@ -398,7 +398,7 @@ Model Terbaik Berdasarkan Accuracy
 
  Model terbaik adalah model random forest dengan accuracy sebesar 0.89
  
-### Contoh 20 Data Prediksi
+#### Contoh 20 Data Prediksi
 Berikut adalah 20 contoh perbandingan nilai asli dan hasil prediksi model yang digunakan:
 
 | Index | Actual | Pred_LR | Pred_DT | Pred_RF | Pred_GB | Pred_SVM |
@@ -426,7 +426,7 @@ Berikut adalah 20 contoh perbandingan nilai asli dan hasil prediksi model yang d
 
 Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki prediksi yang paling mendekati nilai aktual (y_true) di antara model-model yang dibandingkan.
 
-#### Rekomendasi Action Items untuk Menurunkan Attrition dan Mencapai Target Perusahaan
+### Rekomendasi Action Items untuk Menurunkan Attrition dan Mencapai Target Perusahaan
 
 ##### 1.  Fokus pada Karyawan Muda (Usia <25 dan 25–34 Tahun)
 **Masalah:** Tingkat attrition tertinggi berada pada kelompok usia muda (29,9% dan 15,34%).
