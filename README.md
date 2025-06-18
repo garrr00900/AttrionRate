@@ -1,14 +1,88 @@
+- Nama: MUHAMMAD TEGAR ABHIRAM
+- Email: tagar.abhiram77@student.ub.ac.id
+- Id Dicoding: garrr007
+
 # Proyek: Menyelesaikan Permasalahan Human Resources
 
-## Domain Proyek 
+## Business Understanding 
 Jaya Jaya Maju merupakan salah satu perusahaan multinasional yang telah berdiri sejak tahun 2000. Ia memiliki lebih dari 1000 karyawan yang tersebar di seluruh penjuru negeri. 
 
 Walaupun telah menjadi menjadi perusahaan yang cukup besar, Jaya Jaya Maju masih cukup kesulitan dalam mengelola karyawan. Hal ini berimbas tingginya attrition rate (rasio jumlah karyawan yang keluar dengan total karyawan keseluruhan) hingga lebih dari 10%.
 
 Untuk mencegah hal ini semakin parah, manajer departemen HR ingin meminta bantuan untuk mengidentifikasi berbagai faktor yang mempengaruhi tingginya attrition rate tersebut. Selain itu, dibuat juga business dashboard untuk membantunya memonitori berbagai faktor tersebut. 
 
-## Data Understanding
+## Permasalahan Bisnis 
+Meskipun Jaya Jaya Maju telah berkembang menjadi perusahaan multinasional dengan lebih dari 1000 karyawan,  tingkat attrition rate  menjadi tantangan serius bagi keberlanjutan dan stabilitas perusahaan. 
 
+Kondisi ini menunjukkan bahwa ada masalah mendasar dalam **manajemen sumber daya manusia**, yang jika dibiarkan, dapat berdampak pada:
+
+- **Produktivitas tim yang terganggu** karena seringnya terjadi pergantian karyawan.
+- **Peningkatan biaya rekrutmen dan pelatihan** akibat tingginya kebutuhan penggantian tenaga kerja.
+- **Menurunnya moral karyawan** yang tersisa, karena merasa lingkungan kerja tidak stabil.
+- **Risiko kehilangan talenta terbaik**, terutama jika mereka tidak puas dengan kondisi kerja yang ada.
+
+---
+
+Dalam upaya memahami penyebab utama dari tingginya tingkat attrition ini, diperlukan analisis data karyawan secara menyeluruh untuk mengidentifikasi pola-pola atau faktor-faktor signifikan yang berkontribusi terhadap keputusan karyawan untuk keluar, seperti:
+
+- Tingkat kepuasan kerja
+- Tingkat Work Life Balance
+- Gaji dan tunjangan
+- Hubungan dengan atasan
+- Dan lainnya
+---
+
+Selain itu, business dashboard interaktif juga dibutuhkan sebagai alat bantu untuk:
+
+- Memberikan **visualisasi faktor-faktor kunci** yang berkorelasi dengan attrition.
+- Memungkinkan **pemantauan real-time** terhadap kondisi sumber daya manusia.
+- Mendukung **pengambilan keputusan berbasis data** oleh manajer HR.
+
+---
+
+Tujuan akhir dari inisiatif ini adalah untuk merancang strategi HR yang lebih efektif dalam:
+
+- Menurunkan tingkat attrition
+- Meningkatkan retensi karyawan
+- Menjaga keberlangsungan dan kualitas operasional perusahaan
+
+## Cakupan Proyek
+
+Proyek ini bertujuan untuk membantu departemen Human Resource (HR) Jaya Jaya Maju dalam mengidentifikasi dan memahami faktor-faktor yang mempengaruhi tingginya tingkat attrition karyawan. Adapun cakupan dari proyek ini meliputi:
+
+### 1. Pengumpulan dan Persiapan Data
+- Mengumpulkan data karyawan dari berbagai sumber internal perusahaan.
+- Melakukan pembersihan dan praproses data untuk memastikan kualitas data yang digunakan dalam analisis.
+
+### 2. Eksplorasi dan Analisis Data (EDA)
+- Melakukan analisis deskriptif untuk memahami karakteristik data karyawan.
+- Mengidentifikasi korelasi antara variabel-variabel seperti masa kerja, gaji, kepuasan kerja, dan jam lembur dengan attrition.
+- Menggali pola-pola potensial penyebab karyawan keluar.
+
+### 3. Pembuatan Model Prediksi Attrition 
+- Membangun model machine learning untuk memprediksi kemungkinan seorang karyawan akan keluar dari perusahaan.
+- Mengevaluasi performa model menggunakan metrik seperti precision, recall, F1-score, dan akurasi.
+
+### 4. Pengembangan Dashboard Interaktif
+- Mendesain dan membangun business dashboard yang menampilkan:
+  - Statistik attrition secara umum dan berdasarkan kategori tertentu.
+  - Visualisasi hubungan antara faktor-faktor seperti kepuasan kerja, masa kerja, dan beban kerja terhadap attrition.
+  - Fitur filter interaktif untuk eksplorasi data oleh manajer HR.
+
+### 5. Penyusunan Rekomendasi Strategis
+- Memberikan insight berbasis data untuk membantu manajer HR dalam mengambil keputusan.
+- Menyusun rekomendasi strategis untuk menurunkan tingkat attrition dan meningkatkan retensi karyawan.
+
+## Pengumpulan dan Persiapan Data
+### Setup Environment
+```
+docker pull metabase/metabase:v0.46.4
+```
+Perintah Docker yang digunakan untuk mengunduh image Metabase versi 0.46.4 dari Docker Hub ke komputer lokal
+```
+docker run -p 3000:3000 --name metabase metabase/metabase
+```
+Perintah itu akan menjalankan Metabase di localhost:3000
 ### Informasi Dataset
 
 Sumber: [Dicoding](https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/main/employee/employee_data.csv), 
@@ -53,53 +127,8 @@ Dataset yang digunakan memuat dimensi sebesar **1470 baris** dan **36 kolom**. U
 | YearsSinceLastPromotion  | Tahun sejak terakhir promosi                                             |
 | YearsWithCurrManager     | Lama bekerja dengan manajer saat ini (tahun) 
 
-##### Exploratory Data Analysis (EDA)
-###### Data Numerik
-![Image](https://github.com/user-attachments/assets/378e4557-9806-4559-99ca-457f673d7aa4)
-
-Berikut adalah ringkasan interpretasi dari grafik distribusi fitur numerik pada dataset karyawan:
-- **Age**: Mayoritas karyawan berada pada rentang usia 25–45 tahun, menunjukkan dominasi usia produktif di perusahaan.
-- **Attrition**: Sebagian besar karyawan tidak keluar dari perusahaan, menandakan tingkat retensi karyawan yang cukup tinggi.
-- **DailyRate**: Nilai gaji harian tersebar secara acak, tidak menunjukkan distribusi atau pola khusus.
-- **DistanceFromHome**: Sebagian besar karyawan tinggal cukup dekat dengan lokasi kantor.
-- **Education**: Tingkat pendidikan didominasi oleh jenjang menengah (misalnya D3/S1).
-- **EmployeeCount**: Nilainya konstan (satu nilai saja), sehingga tidak memberikan informasi berarti.
-- **EnvironmentSatisfaction**: Mayoritas karyawan merasa puas dengan lingkungan kerja.
-- **HourlyRate**: Gaji per jam tersebar acak tanpa pola distribusi yang jelas.
-- **JobInvolvement**: Keterlibatan dalam pekerjaan berada pada tingkat sedang hingga tinggi.
-- **JobLevel**: Mayoritas karyawan berada di level pekerjaan yang lebih rendah (entry-level).
-- **JobSatisfaction**: Tingkat kepuasan kerja cukup bervariasi antar karyawan.
-- **MonthlyIncome**: Sebagian besar karyawan memiliki pendapatan bulanan di bawah 10.000 (mata uang tidak disebutkan).
-- **MonthlyRate**: Distribusi gaji bulanan tidak merata, tampak acak.
-- **NumCompaniesWorked**: Banyak karyawan yang hanya pernah bekerja di sedikit perusahaan sebelumnya.
-- **PercentSalaryHike**: Kenaikan gaji mayoritas berada pada kisaran 11–15%.
-- **PerformanceRating**: Hampir semua karyawan memiliki rating performa sedang, menunjukkan distribusi yang tidak bervariasi.
-- **RelationshipSatisfaction**: Kepuasan terhadap hubungan kerja tergolong tinggi pada sebagian besar karyawan.
-- **StandardHours**: Nilainya sama untuk semua karyawan, sehingga tidak relevan untuk dianalisis lebih lanjut.
-- **StockOptionLevel**: Sebagian besar karyawan tidak mendapatkan opsi saham.
-- **TotalWorkingYears**: Mayoritas karyawan memiliki pengalaman kerja kurang dari 15 tahun.
-- **TrainingTimesLastYear**: Pelatihan yang diikuti dalam setahun terakhir tidak merata.
-- **WorkLifeBalance**: Sebagian besar karyawan merasa memiliki keseimbangan hidup dan kerja yang baik.
-- **YearsAtCompany**: Banyak karyawan baru dengan lama bekerja 0–5 tahun.
-- **YearsInCurrentRole**: Mayoritas karyawan belum terlalu lama di peran saat ini.
-- **YearsWithCurrManager**: Hubungan dengan manajer saat ini masih tergolong baru.
-- **YearsSinceLastPromotion**: Banyak karyawan yang belum dipromosikan dalam waktu yang cukup.
-
-###### Data Kategorikal
-![Image](https://github.com/user-attachments/assets/4b87a441-982a-4be1-b98b-12580b68b69e)
-
-Berikut adalah ringkasan interpretasi dari grafik distribusi fitur kategorikal pada dataset karyawan:
-- **BusinessTravel** – Mayoritas karyawan hanya sesekali melakukan perjalanan bisnis.
-- **Department** – Karyawan paling banyak bekerja di Research & Development, disusul Sales.
-- **EducationField** – Latar belakang pendidikan paling umum adalah Life Sciences dan Medical.
-- **Gender** – Komposisi karyawan lebih banyak laki-laki dibanding perempuan.
-- **JobRole** – Pekerjaan terbanyak adalah Sales Executive dan Research Scientist.
-- **MaritalStatus** – Sebagian besar karyawan sudah menikah, disusul yang masih lajang.
-- **Over18** – Semua karyawan berusia di atas 18 tahun, fitur ini tidak variatif.
-- **OverTime** – Lebih banyak karyawan yang tidak bekerja lembur dibanding yang lembur.
-
-#### Data Preparation
-##### Checking Missing Values
+## Data Preparation
+### Checking Missing Values
 Skrip Python cek nilai null
 ```
 employee_df.isna().sum()
@@ -151,7 +180,7 @@ employee_df['Attrition'] = employee_df['Attrition'].fillna(0.0)
 Mengisi (fill) nilai kosong (NaN) di kolom 'Attrition' dengan angka 0.0.
 Jadi, kalau ada data yang hilang di kolom Attrition, sekarang akan diganti jadi 0.0 supaya tidak ada missing value.
 
-##### Mengecek jumlah nilai unik per kolom 
+### Mengecek jumlah nilai unik per kolom 
 ```
 unique_counts = employee_df.nunique()
 print("Jumlah nilai unik per kolom:")
@@ -210,7 +239,7 @@ Menghapus kolom tersebut
 employee_df_cleaned = employee_df.drop(columns=columns_to_drop)
 ```
 
-##### Memiliih kolom kolom yang berhubungan langsung dengan karakteristik karyawan dan faktor-faktor yang mungkin memengaruhi attrition 
+### Memiliih kolom kolom yang berhubungan langsung dengan karakteristik karyawan dan faktor-faktor yang mungkin memengaruhi attrition 
 'Attrition', 'Age', 'Gender', 'MaritalStatus',
     'JobRole', 'JobLevel', 'Department',
     'PerformanceRating', 'JobInvolvement', 'JobSatisfaction',
@@ -221,7 +250,7 @@ employee_df_cleaned = employee_df.drop(columns=columns_to_drop)
     'StockOptionLevel', 'BusinessTravel', 'DistanceFromHome',
     'OverTime', 'Education', 'EducationField'
     
-##### Menambahkan fitur turunan ke dalam dataset main_df
+### Menambahkan fitur turunan ke dalam dataset main_df
 ```
 main_df['YearsSinceChange'] = main_df['YearsAtCompany'] - main_df['YearsInCurrentRole']
 main_df['IsRecentlyPromoted'] = (main_df['YearsSinceLastPromotion'] < 2).astype(int)
@@ -237,9 +266,54 @@ IsNewEmployee: Menandai karyawan yang baru bekerja (< 2 tahun).
 IsManagerConsistent: Apakah manajer mereka tidak berubah sejak bergabung.  
 IncomePerYear: Rata-rata pendapatan per tahun bekerja.  
 JobSatisfactionLevel: Rata-rata kepuasan kerja gabungan dari beberapa aspek.  
-IsOverTime: Menandai apakah karyawan bekerja lembur.  
+IsOverTime: Menandai apakah karyawan bekerja lembur.
 
-#### Heatmap Korelasi Fitur Numerik Terpilih terhadap Attrition
+## Exploratory Data Analysis (EDA)
+### Data Numerik
+![Image](https://github.com/user-attachments/assets/378e4557-9806-4559-99ca-457f673d7aa4)
+
+Berikut adalah ringkasan interpretasi dari grafik distribusi fitur numerik pada dataset karyawan:
+- **Age**: Mayoritas karyawan berada pada rentang usia 25–45 tahun, menunjukkan dominasi usia produktif di perusahaan.
+- **Attrition**: Sebagian besar karyawan tidak keluar dari perusahaan, menandakan tingkat retensi karyawan yang cukup tinggi.
+- **DailyRate**: Nilai gaji harian tersebar secara acak, tidak menunjukkan distribusi atau pola khusus.
+- **DistanceFromHome**: Sebagian besar karyawan tinggal cukup dekat dengan lokasi kantor.
+- **Education**: Tingkat pendidikan didominasi oleh jenjang menengah (misalnya D3/S1).
+- **EmployeeCount**: Nilainya konstan (satu nilai saja), sehingga tidak memberikan informasi berarti.
+- **EnvironmentSatisfaction**: Mayoritas karyawan merasa puas dengan lingkungan kerja.
+- **HourlyRate**: Gaji per jam tersebar acak tanpa pola distribusi yang jelas.
+- **JobInvolvement**: Keterlibatan dalam pekerjaan berada pada tingkat sedang hingga tinggi.
+- **JobLevel**: Mayoritas karyawan berada di level pekerjaan yang lebih rendah (entry-level).
+- **JobSatisfaction**: Tingkat kepuasan kerja cukup bervariasi antar karyawan.
+- **MonthlyIncome**: Sebagian besar karyawan memiliki pendapatan bulanan di bawah 10.000 (mata uang tidak disebutkan).
+- **MonthlyRate**: Distribusi gaji bulanan tidak merata, tampak acak.
+- **NumCompaniesWorked**: Banyak karyawan yang hanya pernah bekerja di sedikit perusahaan sebelumnya.
+- **PercentSalaryHike**: Kenaikan gaji mayoritas berada pada kisaran 11–15%.
+- **PerformanceRating**: Hampir semua karyawan memiliki rating performa sedang, menunjukkan distribusi yang tidak bervariasi.
+- **RelationshipSatisfaction**: Kepuasan terhadap hubungan kerja tergolong tinggi pada sebagian besar karyawan.
+- **StandardHours**: Nilainya sama untuk semua karyawan, sehingga tidak relevan untuk dianalisis lebih lanjut.
+- **StockOptionLevel**: Sebagian besar karyawan tidak mendapatkan opsi saham.
+- **TotalWorkingYears**: Mayoritas karyawan memiliki pengalaman kerja kurang dari 15 tahun.
+- **TrainingTimesLastYear**: Pelatihan yang diikuti dalam setahun terakhir tidak merata.
+- **WorkLifeBalance**: Sebagian besar karyawan merasa memiliki keseimbangan hidup dan kerja yang baik.
+- **YearsAtCompany**: Banyak karyawan baru dengan lama bekerja 0–5 tahun.
+- **YearsInCurrentRole**: Mayoritas karyawan belum terlalu lama di peran saat ini.
+- **YearsWithCurrManager**: Hubungan dengan manajer saat ini masih tergolong baru.
+- **YearsSinceLastPromotion**: Banyak karyawan yang belum dipromosikan dalam waktu yang cukup.
+
+### Data Kategorikal
+![Image](https://github.com/user-attachments/assets/4b87a441-982a-4be1-b98b-12580b68b69e)
+
+Berikut adalah ringkasan interpretasi dari grafik distribusi fitur kategorikal pada dataset karyawan:
+- **BusinessTravel** – Mayoritas karyawan hanya sesekali melakukan perjalanan bisnis.
+- **Department** – Karyawan paling banyak bekerja di Research & Development, disusul Sales.
+- **EducationField** – Latar belakang pendidikan paling umum adalah Life Sciences dan Medical.
+- **Gender** – Komposisi karyawan lebih banyak laki-laki dibanding perempuan.
+- **JobRole** – Pekerjaan terbanyak adalah Sales Executive dan Research Scientist.
+- **MaritalStatus** – Sebagian besar karyawan sudah menikah, disusul yang masih lajang.
+- **Over18** – Semua karyawan berusia di atas 18 tahun, fitur ini tidak variatif.
+- **OverTime** – Lebih banyak karyawan yang tidak bekerja lembur dibanding yang lembur.
+
+## Heatmap Korelasi Fitur Numerik Terpilih terhadap Attrition
 ![Image](https://github.com/user-attachments/assets/3b19baac-6e43-4875-ae03-84d2291a5e3e)
 
 **Fitur** | **Korelasi** | **Interpretasi**
@@ -251,8 +325,9 @@ YearsAtCompany | -0.13 | Lama bekerja di perusahaan mengurangi kecenderungan kel
 YearsInCurrentRole | -0.13 | Lama di peran saat ini → loyalitas atau stabilitas posisi.
 YearsWithCurrManager | -0.13 | Hubungan jangka panjang dengan atasan berkaitan dengan retensi.
 
-#### Preprocessing
-##### Encoding Target
+## Pembuatan Model Prediksi Attrition
+### Preprocessing
+#### Encoding Target
 ```
 main_df['Attrition'] = main_df['Attrition'].map({'Yes': 1, 'No': 0})
 ```
@@ -260,7 +335,7 @@ main_df['Attrition'] = main_df['Attrition'].map({'Yes': 1, 'No': 0})
 'No' → 0 (menandakan karyawan tetap)
 Ini dilakukan agar kolom target bisa diproses oleh model machine learning yang membutuhkan input numerik.
 
-##### Encoding Fitur Kategorikal
+#### Encoding Fitur Kategorikal
 ```
 categorical_cols = main_df.select_dtypes(include=['object']).columns.tolist()
 categorical_cols = [col for col in categorical_cols if col != 'Attrition']
@@ -276,14 +351,14 @@ Menggunakan LabelEncoder untuk mengubah nilai kategori (teks) di setiap kolom ka
 Setiap nilai unik di kolom akan diberi label numerik (misalnya: Male → 1, Female → 0).
 Dilakukan agar fitur kategorikal bisa diproses oleh model machine learning.
 
-##### Split fitur dan target
+#### Split fitur dan target
 ```
 X = main_df.drop(['Attrition', 'AttritionNum', 'EmployeeId'], axis=1)
 y = main_df["Attrition"]
 ```
 Memisahkan fitur (X) dan target (y) sebelum pelatihan model
 
-##### Data Splitting
+#### Data Splitting
 ```
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
@@ -292,7 +367,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 Membagi data menjadi training set dan testing set dengan proporsi:
 80% untuk training, 20% untuk testing 
 
-##### Feature Scaling
+#### Feature Scaling
 ```
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
@@ -300,8 +375,8 @@ X_test_scaled = scaler.transform(X_test)
 ```
 Standarisasi fitur (skala data) agar setiap fitur memiliki mean = 0 dan standar deviasi = 1:
 
-#### Modeling 
-##### SMOTE (Synthetic Minority Over-sampling Technique)
+### Modeling 
+#### SMOTE (Synthetic Minority Over-sampling Technique)
 ```
 smote = SMOTE(random_state=42)
 X_train_res, y_train_res = smote.fit_resample(X_train_scaled, y_train)
@@ -312,7 +387,7 @@ Tujuan dari SMOTE
 - Meningkatkan jumlah data pada kelas minoritas (misalnya Attrition = Yes) dengan mensintesis data baru, bukan sekadar menduplikasinya.
 - Membantu model agar tidak bias terhadap kelas mayoritas dan bisa belajar lebih baik mengenali pola dari kedua kelas.
 
-##### Model Training 
+#### Model Training 
 Setelah data diseimbangkan menggunakan teknik **SMOTE**, proses berikutnya adalah melatih beberapa model klasifikasi untuk memprediksi kemungkinan karyawan melakukan *attrition* (keluar dari perusahaan). Lima algoritma klasifikasi digunakan dalam proyek ini, yaitu:
 
 - Logistic Regression  
@@ -325,7 +400,7 @@ Pemilihan kelima model ini didasarkan pada kombinasi antara **kemampuan generali
 
 ---
 
-#### logistic Regression
+##### logistic Regression
 
 Model statistik yang memprediksi probabilitas dari kelas target. Logistic Regression sangat cocok digunakan sebagai baseline karena:
 
@@ -335,7 +410,7 @@ Model statistik yang memprediksi probabilitas dari kelas target. Logistic Regres
 
 ---
 
-#### Nearest Neighbors (KNN)
+##### Nearest Neighbors (KNN)
 
 Model berbasis instance yang menentukan kelas berdasarkan mayoritas dari k tetangga terdekat. Karakteristik:
 
@@ -345,7 +420,7 @@ Model berbasis instance yang menentukan kelas berdasarkan mayoritas dari k tetan
 
 ---
 
-#### Support Vector Machine (SVM)
+##### Support Vector Machine (SVM)
 
 Model yang berusaha menemukan hyperplane terbaik untuk memisahkan dua kelas dengan margin maksimal. Keunggulan:
 
@@ -355,7 +430,7 @@ Model yang berusaha menemukan hyperplane terbaik untuk memisahkan dua kelas deng
 
 ---
 
-#### Random Forest
+##### Random Forest
 
 Random Forest adalah model berbasis ensemble learning yang terdiri dari banyak *decision tree* yang dilatih secara acak. Keunggulan:
 
@@ -365,7 +440,7 @@ Random Forest adalah model berbasis ensemble learning yang terdiri dari banyak *
 
 ---
 
-#### Gradient Boosting
+##### Gradient Boosting
 
 Gradient Boosting adalah model ensemble yang membangun pohon keputusan secara bertahap, dengan memperbaiki kesalahan dari model sebelumnya. Karakteristik:
 
@@ -375,7 +450,7 @@ Gradient Boosting adalah model ensemble yang membangun pohon keputusan secara be
 
 ---
 
-#### Tujuan Pelatihan Multi-Model
+##### Tujuan Pelatihan Multi-Model
 
 Pelatihan kelima model ini dilakukan untuk membandingkan performa dari berbagai algoritma, terutama pada:
 
@@ -385,7 +460,7 @@ Pelatihan kelima model ini dilakukan untuk membandingkan performa dari berbagai 
 - Interpretabilitas model untuk keperluan bisnis 
 
 
-##### Evaluasi Model
+### Evaluasi Model
 Model Terbaik Berdasarkan Accuracy
 | Model                   | Accuracy | Precision | Recall   | F1-Score |
 |-------------------------|----------|-----------|----------|----------|
@@ -398,7 +473,7 @@ Model Terbaik Berdasarkan Accuracy
 
  Model terbaik adalah model random forest dengan accuracy sebesar 0.89
  
-#### Contoh 20 Data Prediksi
+### Contoh 20 Data Prediksi
 Berikut adalah 20 contoh perbandingan nilai asli dan hasil prediksi model yang digunakan:
 
 | Index | Actual | Pred_LR | Pred_DT | Pred_RF | Pred_GB | Pred_SVM |
@@ -426,9 +501,65 @@ Berikut adalah 20 contoh perbandingan nilai asli dan hasil prediksi model yang d
 
 Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki prediksi yang paling mendekati nilai aktual (y_true) di antara model-model yang dibandingkan.
 
-### Rekomendasi Action Items untuk Menurunkan Attrition dan Mencapai Target Perusahaan
+## Business Dashboard
+![Image](https://github.com/user-attachments/assets/ccc0365b-6a50-4b10-b6e8-9cdf1b0afb88)
+![Image](https://github.com/user-attachments/assets/20884b0d-c87b-43d9-8843-ddcdfe11eab5)
 
-##### 1.  Fokus pada Karyawan Muda (Usia <25 dan 25–34 Tahun)
+Dashboard ini dirancang untuk memberikan gambaran komprehensif terkait faktor-faktor yang mempengaruhi tingginya tingkat keluar (attrition) karyawan di perusahaan Jaya Jaya Maju. 
+
+Ringkasan umum mengenai kondisi attrition di perusahaan:
+
+- Total Karyawan dan Tingkat Attrition
+  - Total karyawan: 1.470  
+  - Jumlah keluar: 179  
+  - Attrition Rate: 22,12% – termasuk kategori tinggi.
+
+- Attrition Berdasarkan Job Role  
+  - `Sales Representative`: tingkat tertinggi (30,12%)  
+  - Diikuti oleh `Laboratory Technician` dan `Research Scientist`.
+
+- Attrition Berdasarkan Usia  
+  - Usia di bawah 25 tahun: hampir 30% keluar.  
+  - Usia 35–54 tahun cenderung lebih stabil.
+
+- Attrition Berdasarkan Departemen  
+  - Departemen `Sales`: attrition tertinggi (14,8%)  
+  - Disusul oleh `R&D` dan `Human Resources`.
+
+- Attrition Berdasarkan Status Pernikahan & Gender  
+  - Karyawan single memiliki kemungkinan keluar lebih tinggi daripada yang menikah atau bercerai.
+  - 
+- Job Satisfaction (Kepuasan Kerja)  
+  - Semakin rendah kepuasan, semakin tinggi attrition rate.
+
+- Pendapatan* 
+  - Rata-rata gaji karyawan yang keluar: $4.9k 
+  - Rata-rata gaji karyawan yang bertahan: $6.7k
+
+- Lama Bekerja (Tenure)  
+  - Karyawan dengan masa kerja < 1 tahun memiliki attrition tertinggi (40%).  
+  - Ini menandakan pentingnya proses onboarding yang efektif.
+
+- Riwayat Kerja Sebelumnya (NumCompaniesWorked)  
+  - Mereka yang pernah bekerja di >5 perusahaan memiliki kemungkinan keluar lebih tinggi.  
+  - Tertinggi pada angka 5 perusahaan sebelumnya: 20,63%
+
+- **Work-Life Balance (WLB)  
+  - WLB level 1 (buruk): 22,5% attrition  
+  - WLB level 4 (sangat baik): hanya 14,38%  
+  - Semakin baik WLB, semakin rendah kemungkinan keluar.
+  - 
+
+Dari dashboard ini, terdapat beberapa insight kunci:
+
+1. Usia muda dan posisi tertentu (seperti Sales Representative) memiliki tingkat attrition yang tinggi.
+2. Kepuasan kerja dan keseimbangan kerja-hidup sangat berpengaruh terhadap keputusan karyawan.
+3. Gaji rendah merupakan salah satu indikator yang berkorelasi kuat dengan keputusan untuk keluar.
+4. Karyawan dengan masa kerja singkat dan riwayat pekerjaan yang berpindah-pindah cenderung lebih tidak stabil.
+
+## Rekomendasi Action Items untuk Menurunkan Attrition dan Mencapai Target Perusahaan
+
+### 1.  Fokus pada Karyawan Muda (Usia <25 dan 25–34 Tahun)
 **Masalah:** Tingkat attrition tertinggi berada pada kelompok usia muda (29,9% dan 15,34%).
 
 **Action:**
@@ -438,7 +569,7 @@ Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki pre
 
 ---
 
-#####  2. Perhatikan Role dengan Tingkat Attrition Tinggi (Sales Rep & Lab Technician)
+###  2. Perhatikan Role dengan Tingkat Attrition Tinggi (Sales Rep & Lab Technician)
 **Masalah:** Sales Representative memiliki tingkat attrition 30,12% dan Laboratory Technician 18,92%.
 
 **Action:**
@@ -448,7 +579,7 @@ Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki pre
 
 ---
 
-##### 3. Tingkatkan Kompensasi dan Kenaikan Gaji
+### 3. Tingkatkan Kompensasi dan Kenaikan Gaji
 **Masalah:** Rata-rata salary karyawan yang keluar hanya $4.9k, lebih rendah dari yang tetap ($6.7k).
 
 **Action:**
@@ -458,7 +589,7 @@ Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki pre
 
 ---
 
-##### 4. Tingkatkan Work-Life Balance
+### 4. Tingkatkan Work-Life Balance
 **Masalah:** Level WorkLifeBalance terendah (Level 1) memiliki attrition rate 22,5%.
 
 **Action:**
@@ -468,7 +599,7 @@ Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki pre
 
 ---
 
-##### 5. Perkuat Engagement di Tahun-Tahun Awal Kerja
+### 5. Perkuat Engagement di Tahun-Tahun Awal Kerja
 **Masalah:** Karyawan <1 tahun dan 1–3 tahun memiliki attrition rate tinggi (40% dan 31%).
 
 **Action:**
@@ -478,7 +609,7 @@ Berdasarkan tabel di atas, kita dapat melihat bahwa model SVM (SVM) memiliki pre
 
 ---
 
-###### Fokus pada Karyawan yang Sering Pindah Perusahaan 
+### Fokus pada Karyawan yang Sering Pindah Perusahaan 
 **Masalah:** Karyawan dengan 5–7 perusahaan sebelumnya menunjukkan attrition tinggi.
 
 **Action:**
