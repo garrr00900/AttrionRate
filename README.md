@@ -528,7 +528,7 @@ Ringkasan umum mengenai kondisi attrition di perusahaan:
 
 - Attrition Berdasarkan Status Pernikahan & Gender  
   - Karyawan single memiliki kemungkinan keluar lebih tinggi daripada yang menikah atau bercerai.
-  - 
+  
 - Job Satisfaction (Kepuasan Kerja)  
   - Semakin rendah kepuasan, semakin tinggi attrition rate.
 
@@ -548,14 +548,23 @@ Ringkasan umum mengenai kondisi attrition di perusahaan:
   - WLB level 1 (buruk): 22,5% attrition  
   - WLB level 4 (sangat baik): hanya 14,38%  
   - Semakin baik WLB, semakin rendah kemungkinan keluar.
-  - 
 
-Dari dashboard ini, terdapat beberapa insight kunci:
 
-1. Usia muda dan posisi tertentu (seperti Sales Representative) memiliki tingkat attrition yang tinggi.
-2. Kepuasan kerja dan keseimbangan kerja-hidup sangat berpengaruh terhadap keputusan karyawan.
-3. Gaji rendah merupakan salah satu indikator yang berkorelasi kuat dengan keputusan untuk keluar.
-4. Karyawan dengan masa kerja singkat dan riwayat pekerjaan yang berpindah-pindah cenderung lebih tidak stabil.
+## Conclution
+**Hasil Analisis Data**
+
+- **Tingkat attrition** perusahaan berada di angka **22,12%**, termasuk kategori **tinggi**, dengan jumlah karyawan keluar mencapai **179 dari 1.470 orang**.
+- **Job Role** dan **usia muda** menjadi faktor utama, di mana posisi **Sales Representative** dan karyawan usia **<25 tahun** menunjukkan tingkat keluar tertinggi.
+- **Kepuasan kerja**, **Work-Life Balance**, dan **pendapatan** memiliki korelasi kuat terhadap keputusan karyawan untuk keluar.
+- **Karyawan dengan masa kerja <1 tahun** dan **riwayat berpindah-pindah perusahaan** juga menunjukkan risiko keluar yang lebih besar.
+
+**Hasil Evaluasi Model Prediksi**
+
+Model dibangun menggunakan beberapa algoritma machine learning
+
+Model terbaik adalah **Random Forest** dengan **Accuracy**: 0.89
+
+Model ini dapat digunakan untuk mengidentifikasi karyawan yang berpotensi keluar dan memungkinkan intervensi lebih awal.
 
 ## Rekomendasi Action Items untuk Menurunkan Attrition dan Mencapai Target Perusahaan
 
