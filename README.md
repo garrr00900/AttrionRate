@@ -127,8 +127,8 @@ Dataset yang digunakan memuat dimensi sebesar **1470 baris** dan **36 kolom**. U
 | YearsSinceLastPromotion  | Tahun sejak terakhir promosi                                             |
 | YearsWithCurrManager     | Lama bekerja dengan manajer saat ini (tahun) 
 
-## Data Preparation
-### Checking Missing Values
+### Data Preparation
+#### Checking Missing Values
 Skrip Python cek nilai null
 ```
 employee_df.isna().sum()
@@ -180,7 +180,7 @@ employee_df['Attrition'] = employee_df['Attrition'].fillna(0.0)
 Mengisi (fill) nilai kosong (NaN) di kolom 'Attrition' dengan angka 0.0.
 Jadi, kalau ada data yang hilang di kolom Attrition, sekarang akan diganti jadi 0.0 supaya tidak ada missing value.
 
-### Mengecek jumlah nilai unik per kolom 
+#### Mengecek jumlah nilai unik per kolom 
 ```
 unique_counts = employee_df.nunique()
 print("Jumlah nilai unik per kolom:")
@@ -239,7 +239,7 @@ Menghapus kolom tersebut
 employee_df_cleaned = employee_df.drop(columns=columns_to_drop)
 ```
 
-### Memiliih kolom kolom yang berhubungan langsung dengan karakteristik karyawan dan faktor-faktor yang mungkin memengaruhi attrition 
+#### Memiliih kolom kolom yang berhubungan langsung dengan karakteristik karyawan dan faktor-faktor yang mungkin memengaruhi attrition 
 'Attrition', 'Age', 'Gender', 'MaritalStatus',
     'JobRole', 'JobLevel', 'Department',
     'PerformanceRating', 'JobInvolvement', 'JobSatisfaction',
@@ -250,7 +250,7 @@ employee_df_cleaned = employee_df.drop(columns=columns_to_drop)
     'StockOptionLevel', 'BusinessTravel', 'DistanceFromHome',
     'OverTime', 'Education', 'EducationField'
     
-### Menambahkan fitur turunan ke dalam dataset main_df
+#### Menambahkan fitur turunan ke dalam dataset main_df
 ```
 main_df['YearsSinceChange'] = main_df['YearsAtCompany'] - main_df['YearsInCurrentRole']
 main_df['IsRecentlyPromoted'] = (main_df['YearsSinceLastPromotion'] < 2).astype(int)
